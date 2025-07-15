@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Morning Family Garden - Support Our Mission</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #4caf50;
+        padding: 1rem 2rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-size: 1rem;
+      }
+
+      nav a:hover {
+        color: #ffeb3b;
+      }
+
+      .navbar {
+        display: flex;
+        list-style: none;
+      }
+
+      .navbar li {
+        margin: 0 1rem;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        background: linear-gradient(
+            rgba(76, 175, 80, 0.8),
+            rgba(76, 175, 80, 0.8)
+          ),
+          url("images/bg.jpeg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero-section h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-section .impact-statement {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-cta {
+        background-color: #ff6b35;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+      }
+
+      .hero-cta:hover {
+        background-color: #e55a2b;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+      }
+
+      /* Donation Amounts Section */
+      .donation-amounts {
+        background: white;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .donation-amounts h2 {
+        color: #4caf50;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+      }
+
+      .amount-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto 3rem auto;
+      }
+
+      .amount-card {
+        background: #f8f9fa;
+        border: 2px solid #e9ecef;
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .amount-card:hover {
+        border-color: #4caf50;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+      }
+
+      .amount-card .price {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #4caf50;
+        margin-bottom: 0.5rem;
+      }
+
+      .amount-card .impact {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      /* Donorbox Integration */
+      .donation-form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      /* Trust Indicators */
+      .trust-section {
+        background: #4caf50;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .trust-badges {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .trust-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+
+      /* Impact Story */
+      .impact-story {
+        background: white;
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .story-card {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .story-card img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 4px solid #4caf50;
+      }
+
+      .story-card h3 {
+        color: #4caf50;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      /* Transparency Section */
+      .transparency {
+        background: #f8f9fa;
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .transparency h2 {
+        color: #4caf50;
+        margin-bottom: 2rem;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .stat-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #4caf50;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      footer a {
+        color: #4caf50;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-section h1 {
+          font-size: 2rem;
+        }
+
+        .hero-section .impact-statement {
+          font-size: 1.1rem;
+        }
+
+        .amount-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .trust-badges {
+          gap: 1rem;
+        }
+      }
+
+      /* Call-to-action animations */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .pulse-animation {
+        animation: pulse 2s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="index.html">The Morning Family Garden</a>
+      </div>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#workshops">Workshops</a></li>
+        <li><a href="donation.html" style="color: #ffeb3b">Donate</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1>Help Kids Grow Healthy Futures</h1>
+      <p class="impact-statement">
+        Every $25 donation provides healthy meal workshops for 5 children and
+        teaches them to grow their own organic vegetables
+      </p>
+      <a href="#donate-form" class="hero-cta pulse-animation">DONATE NOW</a>
+    </section>
+
+    <!-- Donation Amounts -->
+    <section class="donation-amounts">
+      <h2>Choose Your Impact</h2>
+      <div class="amount-grid">
+        <div class="amount-card">
+          <div class="price">$25</div>
+          <div class="impact">
+            Provides healthy cooking workshops for 5 children
+          </div>
+        </div>
+        <div class="amount-card">
+          <div class="price">$50</div>
+          <div class="impact">
+            Supplies seeds and tools for 10 kids to start their own gardens
+          </div>
+        </div>
+        <div class="amount-card">
+          <div class="price">$100</div>
+          <div class="impact">
+            Sponsors a complete nutrition education program for one family
+          </div>
+        </div>
+        <div class="amount-card">
+          <div class="price">$250</div>
+          <div class="impact">
+            Funds a month of healthy meals and gardening activities for 20
+            children
+          </div>
+        </div>
+      </div>
+
+      <!-- Donorbox Integration -->
+      <div id="donate-form" class="donation-form-container">
+        <!-- Replace with your actual Donorbox campaign URL -->
+        <iframe
+          src="https://donorbox.org/embed/your-campaign-name-here"
+          width="100%"
+          height="685px"
+          seamless="seamless"
+          name="donorbox"
+          frameborder="0"
+          scrolling="no"
+          allowpaymentrequest
+        >
+        </iframe>
+      </div>
+
+      <!-- Fallback for setup -->
+      <div
+        style="
+          text-align: center;
+          padding: 2rem;
+          background: #fff3cd;
+          border-radius: 8px;
+          margin-top: 2rem;
+        "
+      >
+        <p>
+          <strong>Setup Note:</strong> Replace the iframe src above with your
+          actual Donorbox campaign URL once created.
+        </p>
+        <p>
+          Example: <code>https://donorbox.org/embed/morning-family-garden</code>
+        </p>
+      </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+      <h2>Your Donation is Secure & Tax-Deductible</h2>
+      <div class="trust-badges">
+        <div class="trust-badge">🔒 256-bit SSL Encrypted</div>
+        <div class="trust-badge">📋 501(c)(3) Nonprofit</div>
+        <div class="trust-badge">⭐ 4.8/5 Donor Rating</div>
+        <div class="trust-badge">✅ Tax Receipt Provided</div>
+      </div>
+    </section>
+
+    <!-- Impact Story -->
+    <section class="impact-story">
+      <h2>Meet Sarah's Family</h2>
+      <div class="story-card">
+        <img src="images/Helen.jpeg" alt="Helen Young" />
+        <h3>"Our kids actually ask for vegetables now!"</h3>
+        <p>
+          Thanks to The Morning Family Garden's workshops, Sarah's three
+          children learned to grow their own tomatoes, carrots, and herbs.
+          "They're so proud of what they've grown that they actually prefer
+          their homemade salads to fast food," Sarah shares. "Helen's program
+          didn't just teach them about nutrition – it gave them confidence and a
+          lifelong skill."
+        </p>
+      </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency">
+      <h2>Your Impact in Numbers</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Children served this year</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">85%</div>
+          <div class="stat-label">Goes directly to programs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Communities reached</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">95%</div>
+          <div class="stat-label">Families report improved eating</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2024 The Morning Family Garden. All rights reserved. |
+        <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
+      </p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem">
+        The Morning Family Garden is a 501(c)(3) nonprofit organization. Your
+        donation is tax-deductible.
+      </p>
+    </footer>
+
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add click handlers for donation amount cards
+      document.querySelectorAll(".amount-card").forEach((card) => {
+        card.addEventListener("click", function () {
+          // Remove active class from all cards
+          document
+            .querySelectorAll(".amount-card")
+            .forEach((c) => c.classList.remove("active"));
+          // Add active class to clicked card
+          this.classList.add("active");
+
+          // Scroll to donation form
+          document.getElementById("donate-form").scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        });
+      });
+    </script>
+
+    <style>
+      .amount-card.active {
+        border-color: #4caf50;
+        background-color: #e8f5e8;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+      }
+    </style>
+  </body>
+</html>
