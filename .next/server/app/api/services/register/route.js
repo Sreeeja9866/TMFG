@@ -1,0 +1,10 @@
+var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/services/register/route.js")
+R.c("server/chunks/[root-of-the-server]__1438164e._.js")
+R.c("server/chunks/TMFG_src_lib_email_ts_01d89f87._.js")
+R.c("server/chunks/88044_next_813642b8._.js")
+R.c("server/chunks/[root-of-the-server]__53bcf1f4._.js")
+R.c("server/chunks/88044_nodemailer_lib_b29ed25c._.js")
+R.c("server/chunks/[root-of-the-server]__4aace1e9._.js")
+R.c("server/chunks/TMFG__next-internal_server_app_api_services_register_route_actions_9c5ad5ce.js")
+R.m(272)
+module.exports=R.m(272).exports

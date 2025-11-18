@@ -60,14 +60,10 @@ export default function DonatePage() {
       }
 
       // Redirect to Stripe Checkout
-      const stripe = await stripePromise
-      if (stripe && data.sessionId) {
-        const { error } = await stripe.redirectToCheckout({
-          sessionId: data.sessionId,
-        })
-        if (error) {
-          setError(error.message || 'Payment failed')
-        }
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        throw new Error('No checkout URL received')
       }
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again.')

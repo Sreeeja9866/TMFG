@@ -1,0 +1,10 @@
+var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/volunteers/route.js")
+R.c("server/chunks/88044_next_445631b4._.js")
+R.c("server/chunks/88044_@opentelemetry_api_build_esm_7e47a67e._.js")
+R.c("server/chunks/88044_mime-db_3c18dc06._.js")
+R.c("server/chunks/88044_axios_dist_node_axios_cjs_a290295d._.js")
+R.c("server/chunks/88044_c9722575._.js")
+R.c("server/chunks/[root-of-the-server]__f581e1a3._.js")
+R.c("server/chunks/TMFG__next-internal_server_app_api_volunteers_route_actions_468d4031.js")
+R.m("[project]/TMFG/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/TMFG/src/app/api/volunteers/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)")
+module.exports=R.m("[project]/TMFG/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/TMFG/src/app/api/volunteers/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports

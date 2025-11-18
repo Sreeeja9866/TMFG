@@ -4,8 +4,9 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { Suspense } from 'react'
 
-export default function AuthErrorPage() {
+function ErrorContent() {
   const searchParams = useSearchParams()
   const error = searchParams?.get('error')
 
@@ -67,10 +68,7 @@ export default function AuthErrorPage() {
   const errorInfo = error ? errorMessages[error] || errorMessages.Default : errorMessages.Default
 
   return (
-    <main>
-      <Navbar />
-
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full">
           <div className="bg-white rounded-lg shadow-lg p-8 text-center">
             <div className="mb-6">
@@ -135,7 +133,20 @@ export default function AuthErrorPage() {
           </div>
         </div>
       </div>
+  )
+}
 
+export default function AuthErrorPage() {
+  return (
+    <main>
+      <Navbar />
+      <Suspense fallback={
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center">Loading...</div>
+        </div>
+      }>
+        <ErrorContent />
+      </Suspense>
       <Footer />
     </main>
   )
